@@ -41,7 +41,7 @@ export default function TodoForm({ onAdd }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-6">
+    <form onSubmit={handleSubmit} className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-200 dark:border-purple-800 p-4 mb-6">
       <div className="flex gap-2">
         <input
           type="text"
@@ -49,12 +49,12 @@ export default function TodoForm({ onAdd }: Props) {
           onChange={(e) => setText(e.target.value)}
           onFocus={() => setExpanded(true)}
           placeholder="새 할 일 추가..."
-          className="flex-1 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+          className="flex-1 bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent transition placeholder:text-purple-300 dark:placeholder:text-purple-600"
         />
         <button
           type="submit"
           disabled={!text.trim()}
-          className="px-4 py-2.5 bg-blue-500 hover:bg-blue-600 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-medium rounded-xl transition"
+          className="px-4 py-2.5 bg-gradient-to-r from-violet-500 to-pink-500 hover:from-violet-600 hover:to-pink-600 disabled:opacity-40 disabled:cursor-not-allowed text-white text-sm font-bold rounded-xl transition shadow-md shadow-violet-200 dark:shadow-violet-900"
         >
           추가
         </button>
@@ -72,8 +72,8 @@ export default function TodoForm({ onAdd }: Props) {
                   onClick={() => setPriority(opt.value)}
                   className={`flex-1 py-1.5 text-xs rounded-lg border transition ${
                     priority === opt.value
-                      ? "border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                      : "border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-gray-300"
+                      ? "border-violet-500 bg-violet-50 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 shadow-sm"
+                      : "border-gray-200 dark:border-gray-600 text-gray-500 dark:text-gray-400 hover:border-violet-300"
                   }`}
                 >
                   <span className={opt.color}>●</span> {opt.label}

@@ -45,25 +45,25 @@ export default function TodoFilters({
   stats, onClearCompleted,
 }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 mb-4 space-y-3">
+    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-lg border border-purple-200 dark:border-purple-800 p-4 mb-4 space-y-3">
       <input
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="검색..."
-        className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500 transition"
+        className="w-full bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-700 rounded-xl px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-500 transition placeholder:text-purple-300 dark:placeholder:text-purple-600"
       />
 
       <div className="flex flex-wrap gap-2 items-center">
-        <div className="flex rounded-xl overflow-hidden border border-gray-200 dark:border-gray-600">
+        <div className="flex rounded-xl overflow-hidden border border-purple-200 dark:border-purple-700">
           {statusOptions.map((opt) => (
             <button
               key={opt.value}
               onClick={() => setFilterStatus(opt.value)}
-              className={`px-3 py-1.5 text-xs font-medium transition ${
+              className={`px-3 py-1.5 text-xs font-semibold transition ${
                 filterStatus === opt.value
-                  ? "bg-blue-500 text-white"
-                  : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  ? "bg-gradient-to-r from-violet-500 to-pink-500 text-white"
+                  : "text-gray-500 dark:text-gray-400 hover:bg-purple-50 dark:hover:bg-purple-900/30"
               }`}
             >
               {opt.label}
@@ -79,7 +79,7 @@ export default function TodoFilters({
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value as Category | "all")}
-          className="text-xs border border-gray-200 dark:border-gray-600 rounded-xl px-3 py-1.5 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border border-purple-200 dark:border-purple-700 rounded-xl px-3 py-1.5 bg-white dark:bg-gray-900 text-purple-700 dark:text-purple-300 outline-none focus:ring-2 focus:ring-violet-500"
         >
           {categoryOptions.map((opt) => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -89,7 +89,7 @@ export default function TodoFilters({
         <select
           value={filterPriority}
           onChange={(e) => setFilterPriority(e.target.value as Priority | "all")}
-          className="text-xs border border-gray-200 dark:border-gray-600 rounded-xl px-3 py-1.5 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-300 outline-none focus:ring-2 focus:ring-blue-500"
+          className="text-xs border border-purple-200 dark:border-purple-700 rounded-xl px-3 py-1.5 bg-white dark:bg-gray-900 text-purple-700 dark:text-purple-300 outline-none focus:ring-2 focus:ring-violet-500"
         >
           {priorityOptions.map((opt) => (
             <option key={opt.value} value={opt.value}>{opt.label}</option>
